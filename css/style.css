@@ -1,0 +1,231 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+p, h5 {
+    margin: 0 !important;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border: 2px solid violet;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(320deg, rgba(2, 0, 36, 1) 0%, rgba(137, 221, 255, 1) 0%, rgba(2, 30, 72, 1) 22%, rgba(9, 9, 121, 1) 81%, rgba(0, 212, 255, 1) 100%);
+}
+
+.teleWindow {
+    width: 1350px;
+    height: 900px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(23, 33, 43);
+    display:flex;
+    overflow: hidden;
+}
+
+.wrapContatti {
+    height: 100%;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+input {
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(36,47,61);
+    border: none
+}
+
+span {
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.chatPiccola {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.chatPiccola:hover {
+    background-color: rgb(43,82,120);
+}
+
+.chatPiccola:focus {
+    background-color: rgb(43,82,120);
+}
+
+.wrapAvatar {
+    width: 50px;
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+    border-radius: 9999%;
+    overflow: hidden;
+}
+
+.wrapAvatar img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.wrapInfo {
+    color: white;
+    font-size: 15px;
+}
+
+.wrapBigChat {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.navBigChat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    gap: 5px;
+    border-bottom: 1px solid black;
+    background-color: rgb(36, 48, 58);
+}
+
+.wrapBigInfo {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.wrapInfo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 0;
+}
+
+.wrapIcon {
+    font-size: 20px;
+    gap: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: rgb(77,88,98);
+}
+
+.wrapIcon :first-child {
+    cursor: pointer;
+}
+
+.wrapIcon :first-child:hover{
+    color: rgba(255, 255, 255, 0.432);
+}
+
+.wrapIcon :nth-child(2) {
+    cursor: pointer;
+}
+
+.wrapIcon :nth-child(2):hover{
+    color: rgba(255, 255, 255, 0.432);
+}
+
+.wrapIcon :nth-child(3) {
+    cursor: pointer;
+}
+
+.wrapIcon :nth-child(3):hover{
+    color: rgba(255, 255, 255, 0.432);
+}
+
+.wrapIcon :last-child {
+    cursor: pointer;
+}
+
+.wrapIcon :last-child:hover{
+    color: rgba(255, 255, 255, 0.432);
+}
+
+.textBigChat {
+    border-top: 1px solid black;
+    padding: 6px;
+    font-size: 25px;
+    color: rgb(77,88,98);
+    background-color: rgb(36, 48, 58);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.textBigChat input {
+    width: 90%;
+}
+
+.textBigChat :first-child {
+    cursor: pointer;
+}
+
+.textBigChat :first-child:hover {
+    color:  rgba(255, 255, 255, 0.432)
+}
+
+.textBigChat :nth-child(3) {
+    cursor: pointer;
+}
+
+.textBigChat :nth-child(3):hover {
+    color:  rgba(255, 255, 255, 0.432)
+}
+
+.textBigChat :last-child {
+    cursor: pointer;
+}
+
+.textBigChat :last-child:hover {
+    color:  rgba(255, 255, 255, 0.432)
+}
+
+.bigChat {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    flex-grow: 1;
+    padding: 10px;
+    row-gap: 10px
+}
+
+.messagge {
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    color: white;
+    border-radius: 15px;
+}
+
+.messagge.inviato {
+    align-self: flex-end;
+    background: rgb(34,41,195);
+    background: linear-gradient(333deg, rgba(34,41,195,1) 0%, rgba(45,253,214,1) 100%);
+}
+
+.messagge.ricevuto {
+    align-self: flex-start;
+    background: rgb(168,34,195);
+    background: linear-gradient(333deg, rgba(168,34,195,1) 0%, rgba(253,187,45,1) 100%);
+}

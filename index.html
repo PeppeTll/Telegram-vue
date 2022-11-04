@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Telegram</title>
+    </head>
+    <body>
+        <div id="app" class="center">
+            <!-- Finestra di telegram -->
+            <div class="teleWindow">
+                <!-- finestra delle chat -->
+                <div class="col-4 wrapContatti">
+                    <input type="text" 
+                        placeholder="Cerca un contatto" 
+                        class="text-white p-2"
+                        v-model="search">
+                    <span></span>
+                    <div class="chatPiccola"  
+                        v-for="(contatto, i) in filtraContatti" 
+                        @click="showChat(i)">
+                        <!-- contenitore avatar -->
+                        <div class="wrapAvatar">
+                            <img :src="contatto.avatar" alt="" @click="console(contatto, i)">
+                        </div>
+                        <!-- contenitore nome e ultimo messagio -->
+                        <div class="wrapInfo">
+                            <h5 class="m-0">{{contatto.nome}}</h5>
+                            <p class="m-0">{{contatto.messaggi.at(-1).testo}}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- finestra chat grande -->
+                <div class="col-8 wrapBigChat" 
+                    v-for="(contatto, i) in contatti" 
+                    v-show="(index === i) ? true : false">
+                    <!-- navbar chat -->
+                    <div class="navBigChat">
+                        <!-- contenitore nome -->
+                        <div class="wrapBigInfo">
+                            <div class="wrapAvatar">
+                                <img :src="contatto.avatar" alt="">
+                            </div>
+                            <div class="wrapInfo">
+                                <h5>{{contatto.nome}}</h5>
+                                <p>{{contatto.messaggi.data}}</p>
+                            </div>
+                        </div>
+                        <!-- contenitore icone chat grande -->
+                        <div class="wrapIcon">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-phone-alt"></i>
+                            <i class="far fa-window-maximize"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <div class="bigChat">
+                        <div class="messagge" 
+                            v-for="(messaggio, i) in contatto.messaggi"
+                            :class="(messaggio.stato === 'ricevuto') ? 'ricevuto' : 'inviato'">
+                            <div>
+                                <h5>{{(messaggio.stato === 'ricevuto') ? contatto.nome : messaggio.nome}}</h5>
+                            </div>
+                            <div>
+                                {{messaggio.testo}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textBigChat">
+                        <i class="fas fa-paperclip"></i>
+                        <input type="text" 
+                        placeholder="Scrivi un messaggio..."
+                        v-model="messaggio"
+                        @keyup.enter="sendMessage(messaggio, i)"
+                        class="fs-5 p-2 text-white">
+                        <i class="fab fa-telegram-plane" @click="sendMessage(messaggio, i)"></i>
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/app.js"></script>
+    </body>
+</html>
